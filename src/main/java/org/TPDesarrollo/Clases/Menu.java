@@ -228,7 +228,7 @@ public class Menu {
                 String tipoRazonSocial = leerCampoString(" - Posición IVA (*)" + tiposValidosPosicionIVA, null, false);
 
                 try {
-                    RazonSocial razonSocialTemporal = RazonSocial.valueOf(tipoRazonSocial.toUpperCase().trim());
+                    RazonSocial razonSocialTemporal = RazonSocial.valueOf(tipoRazonSocial.trim());
                     razonSocial = razonSocialTemporal;
 
                 } catch (IllegalArgumentException e){

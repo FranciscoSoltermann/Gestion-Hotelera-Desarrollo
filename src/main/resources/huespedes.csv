@@ -18,3 +18,4 @@ id,nombre,apellido,documento,tipo_doc,email,pais,provincia,localidad,calle,numer
 17,Lucas,Diaz,31548792,LC,lucas.diaz@gmail.com,Argentina,Santa Fe,Rafaela,Sarmiento,2040,,1,2300,20-31548792-7,Analista de Sistemas,Monotributista,1995-03-29,Argentina
 18,Mariana,Castro,37256841,LE,mariana.castro@gmail.com,Paraguay,Asuncion,Asuncion,Mariscal Lopez,360,,3,1000,27-37256841-9,Empresaria,Responsable Inscripto,1987-07-14,Paraguaya
 19,Antonio,Bortoli,25900123,DNI,,Argentina,Santa Fe,San Justo,Las Piedras,1902,,,3000,,Albañil,Consumidor Final,1990-02-09,Argentino
+20,francisco,soltermann,43123456,DNI,frasoltermann@gmail.com,Bolivia,La paz,Sucre,bolivar,123,,,2122,20431234560,ramera,Monotributista,2001-11-06,Boliviana
