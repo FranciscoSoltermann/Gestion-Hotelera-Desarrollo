@@ -1,9 +1,9 @@
-package org.TPDesarrollo.gestores;
+package org.TPDesarrollo.Gestores;
 
-import org.TPDesarrollo.daos.UsuarioDAO;
-import org.TPDesarrollo.dtos.UsuarioDTO;
-import org.TPDesarrollo.excepciones.UsuarioNoEncontrado;
-import org.TPDesarrollo.excepciones.ContraseniaInvalida;
+import org.TPDesarrollo.DAOS.UsuarioDAO;
+import org.TPDesarrollo.DTOs.UsuarioDTO;
+import org.TPDesarrollo.Excepciones.UsuarioNoEncontrado;
+import org.TPDesarrollo.Excepciones.ContraseniaInvalida;
 
 public class GestorUsuario {
 

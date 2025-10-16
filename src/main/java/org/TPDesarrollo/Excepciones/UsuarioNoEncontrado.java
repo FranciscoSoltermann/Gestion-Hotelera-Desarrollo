@@ -1,4 +1,4 @@
-package org.TPDesarrollo.excepciones;
+package org.TPDesarrollo.Excepciones;
 
 public class UsuarioNoEncontrado extends Exception {
     public UsuarioNoEncontrado(String message) {

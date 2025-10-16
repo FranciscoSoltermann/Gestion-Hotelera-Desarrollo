@@ -1,7 +1,7 @@
-package org.TPDesarrollo.daoImps;
+package org.TPDesarrollo.DAOImp;
 
-import org.TPDesarrollo.daos.UsuarioDAO;
-import org.TPDesarrollo.dtos.UsuarioDTO;
+import org.TPDesarrollo.DAOS.UsuarioDAO;
+import org.TPDesarrollo.DTOs.UsuarioDTO;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,7 +36,6 @@ public class UsuarioDAOImp implements UsuarioDAO {
             System.err.println("Error al leer el archivo CSV: " + e.getMessage());
         }
 
-        // Si no se encontró ningún usuario, devolvemos null.
         return null;
     }
 
@@ -46,13 +45,12 @@ public class UsuarioDAOImp implements UsuarioDAO {
 
         if (!archivo.exists()) {
             try {
-                // Asegura que el directorio padre exista (ej: src/main/resources).
                 File directorioPadre = archivo.getParentFile();
                 if (directorioPadre != null) {
                     directorioPadre.mkdirs();
                 }
                 try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
-                    pw.println("nombre,contrasenia");
+                    pw.println("nombre;contrasenia");
                 }
                 System.out.println("Archivo 'usuarios.csv' no encontrado. Se ha creado uno nuevo con encabezados.");
 

@@ -1,9 +1,6 @@
-package org.TPDesarrollo.dtos;
+package org.TPDesarrollo.Clases;
 
-import org.TPDesarrollo.clases.Direccion;
-
-public class DireccionDTO {
-
+public class Direccion {
     private String pais;
     private String provincia;
     private String localidad;
@@ -13,7 +10,7 @@ public class DireccionDTO {
     private String piso;
     private String codigoPostal;
 
-    public DireccionDTO(String pais, String provincia, String localidad, String calle, int numero, String departamento, String piso, String codigoPostal) {
+    public Direccion(String pais, String provincia, String localidad, String calle, int numero, String departamento, String piso, String codigoPostal) {
         this.pais = pais;
         this.provincia = provincia;
         this.localidad = localidad;
@@ -22,16 +19,6 @@ public class DireccionDTO {
         this.departamento = departamento;
         this.piso = piso;
         this.codigoPostal = codigoPostal;
-    }
-    public DireccionDTO(Direccion direccion) {
-        this.pais = direccion.getPais();
-        this.provincia = direccion.getProvincia();
-        this.localidad = direccion.getLocalidad();
-        this.calle = direccion.getCalle();
-        this.numero = direccion.getNumero();
-        this.departamento = direccion.getDepartamento();
-        this.piso = direccion.getPiso();
-        this.codigoPostal = direccion.getCodigoPostal();
     }
 
     public int getNumero() {
@@ -82,6 +69,7 @@ public class DireccionDTO {
     public String setCodigoPostal(String codigoPostal) {
         return this.codigoPostal = codigoPostal;
     }
+
 
 
 }

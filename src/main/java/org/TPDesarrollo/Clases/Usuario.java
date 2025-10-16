@@ -1,4 +1,4 @@
-package org.TPDesarrollo.clases;
+package org.TPDesarrollo.Clases;
 
 public class Usuario {
     private String nombre;

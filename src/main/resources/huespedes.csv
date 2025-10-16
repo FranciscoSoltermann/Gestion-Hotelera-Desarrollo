@@ -1,5 +1,5 @@
-id,nombre,apellido,documento,tipoDocumento,email,pais,provincia,localidad,calle,numero,departamento,piso,codigoPostal,cuit,ocupacion,posicionIVA,fechaNacimiento,nacionalidad
-1,Juan,Perez,35789456,DNI,juan.perez@gmail.com,Argentina,Buenos Aires,La Plata,Calle 7,1234,B,2,1900,20-35789456-7,Ingeniero,Responsable Inscripto,1989-05-14,Argentina
+id,nombre,apellido,documento,tipo_doc,email,pais,provincia,localidad,calle,numero,departamento,piso,codigo_postal,cuit,ocupacion,posicion_iva,fecha_nacimiento,nacionalidad
+1,Mariano,Perez,35789456,DNI,mariano.perez@gmail.com,Argentina,Buenos Aires,La Plata,Calle 7,1234,B,2,1900,20-35789456-7,Ingeniero,Responsable Inscripto,1989-05-14,Argentina
 2,Ana,Gomez,28456987,PASAPORTE,ana.gomez@yahoo.com,Argentina,Cordoba,Cordoba,Caseros,555,,3,5000,27-28456987-3,Contadora,Monotributista,1990-11-02,Argentina
 3,Carlos,Martinez,41987563,DNI,carlos.martinez@outlook.com,Uruguay,Montevideo,Montevideo,Rivera,1023,,1,11000,23-41987563-9,Arquitecto,Responsable Inscripto,1987-02-28,Uruguaya
 4,Lucia,Ramirez,33789456,LC,lucia.ramirez@gmail.com,Argentina,Santa Fe,Rosario,Mitre,2345,A,5,2000,27-33789456-2,Doctora,Monotributista,1985-08-19,Argentina
@@ -18,4 +18,3 @@ id,nombre,apellido,documento,tipoDocumento,email,pais,provincia,localidad,calle,
 17,Lucas,Diaz,31548792,LC,lucas.diaz@gmail.com,Argentina,Santa Fe,Rafaela,Sarmiento,2040,,1,2300,20-31548792-7,Analista de Sistemas,Monotributista,1995-03-29,Argentina
 18,Mariana,Castro,37256841,LE,mariana.castro@gmail.com,Paraguay,Asuncion,Asuncion,Mariscal Lopez,360,,3,1000,27-37256841-9,Empresaria,Responsable Inscripto,1987-07-14,Paraguaya
 19,Pablo,Verga,38654127,DNI,pablo.verga@hotmail.com,Argentina,Cordoba,Alta Gracia,Rivadavia,670,,2,5186,20-38654127-0,Profesor,Consumidor Final,1990-02-04,Argentina
-20,Carolina,Molina,42987541,PASAPORTE,carolina.molina@gmail.com,Argentina,Mendoza,Godoy Cruz,9 de Julio,1123,,6,5501,27-42987541-2,Arquitecta,Monotributista,1998-09-09,Argentina

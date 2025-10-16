@@ -1,6 +1,6 @@
-package org.TPDesarrollo.daos;
+package org.TPDesarrollo.DAOS;
 
-import org.TPDesarrollo.dtos.UsuarioDTO;
+import org.TPDesarrollo.DTOs.UsuarioDTO;
 
 public interface UsuarioDAO {
     UsuarioDTO obtenerUsuarioPorNombre(String nombre);

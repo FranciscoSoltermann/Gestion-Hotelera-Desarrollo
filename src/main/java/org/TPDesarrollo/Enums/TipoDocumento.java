@@ -1,4 +1,4 @@
-package org.TPDesarrollo.enums;
+package org.TPDesarrollo.Enums;
 
 public enum TipoDocumento {
     DNI,

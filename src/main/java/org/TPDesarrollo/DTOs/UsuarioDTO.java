@@ -1,4 +1,4 @@
-package org.TPDesarrollo.dtos;
+package org.TPDesarrollo.DTOs;
 
 public class UsuarioDTO {
     private String nombre;
