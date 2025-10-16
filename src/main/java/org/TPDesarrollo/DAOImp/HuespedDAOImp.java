@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 public class HuespedDAOImp implements HuespedDAO {
 
     private static final String RUTA_HUESPEDES = "src/main/resources/huespedes.csv";
-    private static final String RUTA_CONTADOR = "src/main/resources/huesped_id_counter.txt";
     private final AtomicInteger contadorId;
 
     public HuespedDAOImp() {
@@ -31,7 +30,6 @@ public class HuespedDAOImp implements HuespedDAO {
 
         try (PrintWriter pw = new PrintWriter(new FileWriter(RUTA_HUESPEDES, true))) {
             pw.println(huespedACSV(huesped));
-            guardarUltimoId(huesped.getId());
             System.out.println("DAO: Huésped " + huesped.getApellido() + " guardado en CSV con ID: " + huesped.getId());
         } catch (IOException e) {
             System.err.println("DAO: Error al dar de alta huésped: " + e.getMessage());
@@ -93,6 +91,35 @@ public class HuespedDAOImp implements HuespedDAO {
             escribirArchivoCompleto(huespedesRestantes);
             System.out.println("DAO: Huésped con ID " + id + " dado de baja del CSV.");
         }
+    }
+
+    public boolean existeHuespedConCuit(String cuit) {
+        if (cuit == null || cuit.trim().isEmpty()) {
+            return false;
+        }
+
+        final String cuitBuscado = cuit.trim();
+        final int CUIT_INDEX = 14;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(RUTA_HUESPEDES))) {
+            String linea;
+            br.readLine();
+
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+
+                if (datos.length > CUIT_INDEX && !datos[CUIT_INDEX].trim().isEmpty()) {
+                    String cuitExistente = datos[CUIT_INDEX].trim();
+
+                    if (cuitBuscado.equalsIgnoreCase(cuitExistente)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("DAO: Error al verificar la existencia del CUIT en el archivo CSV: " + e.getMessage());
+        }
+        return false;
     }
 
     // --- MÉTODOS PRIVADOS AUXILIARES ---
@@ -242,18 +269,11 @@ public class HuespedDAOImp implements HuespedDAO {
     }
 
     private int cargarUltimoId() {
-        try (BufferedReader br = new BufferedReader(new FileReader(RUTA_CONTADOR))) {
-            return Integer.parseInt(br.readLine());
-        } catch (IOException | NumberFormatException e) {
-            return 0;
-        }
-    }
-
-    private void guardarUltimoId(int id) {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(RUTA_CONTADOR))) {
-            pw.print(id);
-        } catch (IOException e) {
-            System.err.println("DAO: Error al guardar el contador de ID: " + e.getMessage());
-        }
+        List<Huesped> todos = obtenerTodos();
+        return todos.stream()
+                .map(Huesped::getId)
+                .filter(Objects::nonNull)
+                .max(Integer::compare)
+                .orElse(0); // Devuelve 0 si no hay huéspedes
     }
 }

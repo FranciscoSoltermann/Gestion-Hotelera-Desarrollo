@@ -9,4 +9,5 @@ public interface HuespedDAO {
     void darDeAltaHuesped(Huesped huesped);
     void modificarHuesped(Huesped huesped);
     void darDeBajaHuesped(Integer id);
+    boolean existeHuespedConCuit(String cuit);
 }

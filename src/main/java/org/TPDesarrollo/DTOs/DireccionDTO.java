@@ -13,6 +13,10 @@ public class DireccionDTO {
     private String piso;
     private String codigoPostal;
 
+    public DireccionDTO() {
+
+    }
+
     public DireccionDTO(String pais, String provincia, String localidad, String calle, int numero, String departamento, String piso, String codigoPostal) {
         this.pais = pais;
         this.provincia = provincia;

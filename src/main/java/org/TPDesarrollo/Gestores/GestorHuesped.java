@@ -5,6 +5,7 @@ import org.TPDesarrollo.Clases.Huesped;
 import org.TPDesarrollo.DAOS.HuespedDAO;
 import org.TPDesarrollo.DTOs.DireccionDTO;
 import org.TPDesarrollo.DTOs.HuespedDTO;
+import org.TPDesarrollo.Excepciones.CuitExistente;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,8 +38,21 @@ public class GestorHuesped {
 
     public void darDeAltaHuesped(HuespedDTO huespedDTO) {
         System.out.println("GESTOR: Solicitud para dar de alta a " + huespedDTO.getNombre());
+        String cuit = huespedDTO.getCuit();
+
+        if (cuit == null || cuit.trim().isEmpty()) {
+            final String POSICION_IVA_POR_DEFECTO = "Consumidor Final";
+
+            if (huespedDTO.getPosicionIVA() == null || huespedDTO.getPosicionIVA().trim().isEmpty()) {
+                huespedDTO.setPosicionIVA(POSICION_IVA_POR_DEFECTO);
+            }
+        } else {
+            if (huespedDAO.existeHuespedConCuit(cuit)) {
+                throw new CuitExistente(cuit);
+            }
+        }
+
         Huesped huespedEntidad = convertirA_Entidad(huespedDTO);
-        // Aquí podría ir lógica de negocio, ej: validar que el CUIT no exista
         huespedDAO.darDeAltaHuesped(huespedEntidad);
     }
 

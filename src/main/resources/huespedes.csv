@@ -17,4 +17,4 @@ id,nombre,apellido,documento,tipo_doc,email,pais,provincia,localidad,calle,numer
 16,Valentina,Suarez,40125879,DNI,valentina.suarez@gmail.com,Argentina,Buenos Aires,San Isidro,Acassuso,1755,A,4,1642,27-40125879-3,Contadora,Responsable Inscripto,1992-11-19,Argentina
 17,Lucas,Diaz,31548792,LC,lucas.diaz@gmail.com,Argentina,Santa Fe,Rafaela,Sarmiento,2040,,1,2300,20-31548792-7,Analista de Sistemas,Monotributista,1995-03-29,Argentina
 18,Mariana,Castro,37256841,LE,mariana.castro@gmail.com,Paraguay,Asuncion,Asuncion,Mariscal Lopez,360,,3,1000,27-37256841-9,Empresaria,Responsable Inscripto,1987-07-14,Paraguaya
-19,Pablo,Verga,38654127,DNI,pablo.verga@hotmail.com,Argentina,Cordoba,Alta Gracia,Rivadavia,670,,2,5186,20-38654127-0,Profesor,Consumidor Final,1990-02-04,Argentina
+19,Antonio,Bortoli,25900123,DNI,,Argentina,Santa Fe,San Justo,Las Piedras,1902,,,3000,,Albañil,Consumidor Final,1990-02-09,Argentino
