@@ -103,19 +103,24 @@ public class Menu {
         Integer documento = null;
         String entradaDocumento;
 
-        System.out.println("Ingrese los criterios de búsqueda (deje en blanco para omitir):");
+        System.out.println("Ingrese los criterios de búsqueda (deje en blanco para omitir o  '0' para cancelar y volver al menú):");
 
         System.out.print("Apellido: ");
         apellido = scanner.nextLine().trim();
+        if (apellido.equals("0")) {return;}
 
         System.out.print("Nombres: ");
         nombre = scanner.nextLine().trim();
+        if (apellido.equals("0")) {return;}
 
         System.out.print("Tipo Documento (DNI/PASAPORTE/LC/LE): ");
         tipoDoc = scanner.nextLine().trim();
+        if (apellido.equals("0")) {return;}
 
         System.out.print("Número Documento: ");
         entradaDocumento = scanner.nextLine().trim();
+        if (apellido.equals("0")) {return;}
+
 
         if (!entradaDocumento.isEmpty()) {
             try {
@@ -132,9 +137,7 @@ public class Menu {
             System.out.println("\n⚠️ No se encontraron huéspedes que coincidan con los criterios.");
             System.out.print("¿Desea dar de alta un nuevo huésped (S/N)? ");
             if (scanner.nextLine().trim().equalsIgnoreCase("S")) {
-                // ref: iniciarCU11_DarAltaHuesped()
-                System.out.println(">> Iniciando CU11: Dar de alta huésped...");
-                // Aquí iría la llamada al CU11
+                ejecutarCU09_DarAltaHuesped();
             }
         } else {
             System.out.println("\n✅ Se encontraron " + resultados.size() + " huésped(es):");
@@ -170,9 +173,7 @@ public class Menu {
                     System.out.println("❌ ERROR: ID no válido o no encontrado en la lista de resultados.");
                     System.out.print("¿Desea dar de alta un nuevo huésped (S/N)? ");
                     if (scanner.nextLine().trim().equalsIgnoreCase("S")) {
-                        // ref: iniciarCU11_DarAltaHuesped()
-                        System.out.println(">> Iniciando CU11: Dar de alta huésped...");
-                        // Aquí iría la llamada al CU11
+                        ejecutarCU09_DarAltaHuesped();
                         return;
                     }
                     idSeleccionado = null;
@@ -189,11 +190,11 @@ public class Menu {
         DireccionDTO nuevaDireccion = new DireccionDTO();
 
         System.out.println("\n[DATOS PERSONALES]");
-        nuevoHuesped.setNombre(leerCampoString(" - Nombres (*)", "", false));
-        nuevoHuesped.setApellido(leerCampoString(" - Apellidos (*)", "", false));
+        nuevoHuesped.setNombre(leerCampoStringLetras(" - Nombres (*)", "", false));
+        nuevoHuesped.setApellido(leerCampoStringLetras(" - Apellidos (*)", "", false));
         nuevoHuesped.setTelefono(leerCampoString(" - Telefono (*)", "", false));
         nuevoHuesped.setEmail(leerCampoString(" - Email", "", true));
-        nuevoHuesped.setNacionalidad(leerCampoString(" - Nacionalidad (*)", "", false));
+        nuevoHuesped.setNacionalidad(leerCampoStringLetras(" - Nacionalidad (*)", "", false));
         nuevoHuesped.setFechaNacimiento(leerCampoLocalDate(" - Fecha Nacimiento (*)", null));
 
         String tiposValidos = Arrays.toString(TipoDocumento.values());
@@ -245,9 +246,9 @@ public class Menu {
         }
 
         System.out.println("\n[DATOS DE DIRECCIÓN]");
-        nuevaDireccion.setPais(leerCampoString(" - País (*)", "", false));
-        nuevaDireccion.setProvincia(leerCampoString(" - Provincia (*)", "", false));
-        nuevaDireccion.setLocalidad(leerCampoString(" - Localidad (*)", "", false));
+        nuevaDireccion.setPais(leerCampoStringLetras(" - País (*)", "", false));
+        nuevaDireccion.setProvincia(leerCampoStringLetras(" - Provincia (*)", "", false));
+        nuevaDireccion.setLocalidad(leerCampoStringLetras(" - Localidad (*)", "", false));
         nuevaDireccion.setCalle(leerCampoString(" - Calle (*)", "", false));
         nuevaDireccion.setNumero(leerCampoInteger(" - Número (*)", null));
         nuevaDireccion.setPiso(leerCampoString(" - Piso", "", true));
@@ -279,11 +280,11 @@ public class Menu {
         DireccionDTO direccionModificada = clonarDireccionDTO(huespedOriginal.getDireccion());
 
         System.out.println("\n[DATOS PERSONALES]");
-        huespedModificado.setNombre(leerCampoString(" - Nombres (*)", huespedOriginal.getNombre(), false));
-        huespedModificado.setApellido(leerCampoString(" - Apellido (*)", huespedOriginal.getApellido(), false));
+        huespedModificado.setNombre(leerCampoStringLetras(" - Nombres (*)", huespedOriginal.getNombre(), false));
+        huespedModificado.setApellido(leerCampoStringLetras(" - Apellido (*)", huespedOriginal.getApellido(), false));
         huespedModificado.setTelefono(leerCampoString(" - Teléfono (*)", huespedOriginal.getTelefono(), false));
         huespedModificado.setEmail(leerCampoString(" - Email", huespedOriginal.getEmail(), true));
-        huespedModificado.setNacionalidad(leerCampoString(" - Nacionalidad (*)", huespedOriginal.getNacionalidad(), false));
+        huespedModificado.setNacionalidad(leerCampoStringLetras(" - Nacionalidad (*)", huespedOriginal.getNacionalidad(), false));
 
         System.out.println("\n[DATOS DE IDENTIFICACIÓN]");
 
@@ -306,9 +307,9 @@ public class Menu {
 
         if (direccionModificada != null) {
             System.out.println("\n[DATOS DE DIRECCIÓN]");
-            direccionModificada.setPais(leerCampoString(" - País (*)", direccionModificada.getPais(), false));
-            direccionModificada.setProvincia(leerCampoString(" - Provincia (*)", direccionModificada.getProvincia(), false));
-            direccionModificada.setLocalidad(leerCampoString(" - Localidad (*)", direccionModificada.getLocalidad(), false));
+            direccionModificada.setPais(leerCampoStringLetras(" - País (*)", direccionModificada.getPais(), false));
+            direccionModificada.setProvincia(leerCampoStringLetras(" - Provincia (*)", direccionModificada.getProvincia(), false));
+            direccionModificada.setLocalidad(leerCampoStringLetras(" - Localidad (*)", direccionModificada.getLocalidad(), false));
             direccionModificada.setCalle(leerCampoString(" - Calle (*)", direccionModificada.getCalle(), false));
             direccionModificada.setNumero(leerCampoInteger(" - Número (*)", direccionModificada.getNumero()));
             direccionModificada.setPiso(leerCampoString(" - Piso", direccionModificada.getPiso(), true));
@@ -329,6 +330,38 @@ public class Menu {
             System.out.println("❌ Modificación cancelada.");
         }
     }
+
+    private static String leerCampoStringLetras(String label, String valorActual, boolean esOpcional) {
+        String entrada;
+        while (true) {
+            // Muestra el prompt con el valor actual entre corchetes si existe
+            System.out.printf("%s [%s]: ", label, valorActual != null ? valorActual : "");
+            entrada = scanner.nextLine().trim();
+
+            // CASO 1: El usuario escribió algo.
+            if (!entrada.isEmpty()) {
+                // ----> ¡AQUÍ ESTÁ LA NUEVA VALIDACIÓN! <----
+                // Comprueba si la entrada contiene una o más letras de cualquier idioma.
+                if (entrada.matches("\\p{L}+")) {
+                    return entrada; // La entrada es válida, la devolvemos.
+                } else {
+                    // La entrada contiene números, espacios u otros símbolos.
+                    System.out.println("\n❌ ERROR: El campo solo puede contener letras (sin espacios, números ni símbolos).");
+                }
+
+                // CASO 2: El usuario presionó Enter (entrada vacía).
+            } else {
+                // Si el campo es opcional o ya tenía un valor, se acepta la entrada vacía.
+                if (esOpcional || (valorActual != null && !valorActual.isEmpty())) {
+                    return valorActual; // Devuelve el valor que ya tenía.
+                } else {
+                    // Si es obligatorio y no había valor previo, se muestra error.
+                    System.out.println("\n❌ ERROR: Este campo es obligatorio, por favor complételo.");
+                }
+            }
+        }
+    }
+
 
     private static String leerCampoString(String label, String valorActual, boolean esOpcional) {
         String entrada;
