@@ -4,5 +4,6 @@ public enum TipoDocumento {
     DNI,
     PASAPORTE,
     LC,
-    LE
+    LE,
+    OTRO
 }

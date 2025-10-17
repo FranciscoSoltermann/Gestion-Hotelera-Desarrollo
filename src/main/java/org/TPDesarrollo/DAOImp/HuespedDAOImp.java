@@ -146,48 +146,49 @@ public class HuespedDAOImp implements HuespedDAO {
             h.setId(Integer.parseInt(datos[0].trim()));
             h.setNombre(datos[1].trim());
             h.setApellido(datos[2].trim());
+            h.setTelefono(datos[3].trim());
 
             try {
-                h.setDocumento(Integer.parseInt(datos[3].replaceAll("[^0-9]", "")));
+                h.setDocumento(Integer.parseInt(datos[4].replaceAll("[^0-9]", "")));
             } catch (NumberFormatException e) {
                 h.setDocumento(0);
             }
 
             try {
-                h.setTipoDocumento(TipoDocumento.valueOf(datos[4].trim().toUpperCase()));
+                h.setTipoDocumento(TipoDocumento.valueOf(datos[5].trim().toUpperCase()));
             } catch (IllegalArgumentException e) {
                 h.setTipoDocumento(TipoDocumento.DNI);
             }
 
-            if (datos.length > 5) h.setEmail(datos[5].trim());
+            if (datos.length > 6) h.setEmail(datos[6].trim());
 
-            if (datos.length > 13) {
+            if (datos.length > 7) {
                 Direccion direccion = new Direccion(
-                        datos.length > 6 ? datos[6].trim() : "",  // pais
-                        datos.length > 7 ? datos[7].trim() : "",  // provincia
-                        datos.length > 8 ? datos[8].trim() : "",  // localidad
-                        datos.length > 9 ? datos[9].trim() : "",  // calle
-                        datos.length > 10 && !datos[10].trim().isEmpty() ? Integer.parseInt(datos[10].trim()) : 0,  // numero
-                        datos.length > 11 ? datos[11].trim() : "",  // departamento
-                        datos.length > 12 ? datos[12].trim() : "",  // piso
-                        datos.length > 13 ? datos[13].trim() : ""   // codigoPostal
+                        datos.length > 7 ? datos[7].trim() : "",        // Pais
+                        datos.length > 8 ? datos[8].trim() : "",        // Provincia
+                        datos.length > 9 ? datos[9].trim() : "",        // Localidad
+                        datos.length > 10 ? datos[10].trim() : "",      // Calle
+                        datos.length > 11 && !datos[11].trim().isEmpty() ? Integer.parseInt(datos[11].trim()) : 0,  // numero
+                        datos.length > 12 ? datos[12].trim() : "",      // Departamento
+                        datos.length > 13 ? datos[13].trim() : "",      // Piso
+                        datos.length > 14 ? datos[14].trim() : ""       // CodigoPostal
                 );
                 h.setDireccion(direccion);
             }
 
-            if (datos.length > 14) h.setCuit(datos[14].trim());
-            if (datos.length > 15) h.setOcupacion(datos[15].trim());
-            if (datos.length > 16) h.setPosicionIVA(datos[16].trim());
+            if (datos.length > 15) h.setCuit(datos[15].trim());
+            if (datos.length > 16) h.setOcupacion(datos[16].trim());
+            if (datos.length > 17) h.setPosicionIVA(datos[17].trim());
 
-            if (datos.length > 17 && !datos[17].trim().isEmpty()) {
+            if (datos.length > 18 && !datos[18].trim().isEmpty()) {
                 try {
-                    h.setFechaNacimiento(LocalDate.parse(datos[17].trim()));
+                    h.setFechaNacimiento(LocalDate.parse(datos[18].trim()));
                 } catch (Exception e) {
-                    System.err.println("Error parseando fecha: " + datos[17]);
+                    System.err.println("Error parseando fecha: " + datos[18]);
                 }
             }
 
-            if (datos.length > 18) h.setNacionalidad(datos[18].trim());
+            if (datos.length > 19) h.setNacionalidad(datos[19].trim());
 
         } catch (Exception e) {
             System.err.println("Error en mapearLineaA_Huesped al mapear línea: " + Arrays.toString(datos) + ". " + e.getMessage());
@@ -226,6 +227,7 @@ public class HuespedDAOImp implements HuespedDAO {
         sb.append(h.getId()).append(",")
                 .append(h.getNombre()).append(",")
                 .append(h.getApellido()).append(",")
+                .append(h.getTelefono() != null ? h.getTelefono() : "").append(",")
                 .append(h.getDocumento()).append(",")
                 .append(h.getTipoDocumento() != null ? h.getTipoDocumento().name() : "").append(",")
                 .append(h.getEmail() != null ? h.getEmail() : "").append(",");
@@ -247,7 +249,7 @@ public class HuespedDAOImp implements HuespedDAO {
                 .append(h.getOcupacion() != null ? h.getOcupacion() : "").append(",")
                 .append(h.getPosicionIVA() != null ? h.getPosicionIVA() : "").append(",")
                 .append(h.getFechaNacimiento() != null ? h.getFechaNacimiento().toString() : "").append(",")
-                .append(h.getNacionalidad() != null ? h.getNacionalidad() : "");
+                .append(h.getNacionalidad() != null ? h.getNacionalidad() : "\n");
 
         return sb.toString();
     }
@@ -261,7 +263,7 @@ public class HuespedDAOImp implements HuespedDAO {
         File archivo = new File(RUTA_HUESPEDES);
         if (!archivo.exists()) {
             try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
-                pw.println("id,nombre,apellido,documento,tipo_doc,email,pais,provincia,localidad,calle,numero,departamento,piso,codigo_postal,cuit,ocupacion,posicion_iva,fecha_nacimiento,nacionalidad");
+                pw.println("id,nombre,apellido,telefono,documento,tipo_doc,email,pais,provincia,localidad,calle,numero,departamento,piso,codigo_postal,cuit,ocupacion,posicion_iva,fecha_nacimiento,nacionalidad");
             } catch (IOException e) {
                 System.err.println("DAO: Error al crear archivo de huéspedes: " + e.getMessage());
             }
@@ -274,6 +276,6 @@ public class HuespedDAOImp implements HuespedDAO {
                 .map(Huesped::getId)
                 .filter(Objects::nonNull)
                 .max(Integer::compare)
-                .orElse(0); // Devuelve 0 si no hay huéspedes
+                .orElse(0);
     }
 }

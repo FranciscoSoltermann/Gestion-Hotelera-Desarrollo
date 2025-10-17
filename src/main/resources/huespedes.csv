@@ -1,21 +1,6 @@
-id,nombre,apellido,documento,tipo_doc,email,pais,provincia,localidad,calle,numero,departamento,piso,codigo_postal,cuit,ocupacion,posicion_iva,fecha_nacimiento,nacionalidad
-1,Mariano,Perez,35789456,DNI,mariano.perez@gmail.com,Argentina,Buenos Aires,La Plata,Calle 7,1234,B,2,1900,20-35789456-7,Ingeniero,Responsable Inscripto,1989-05-14,Argentina
-2,Ana,Gomez,28456987,PASAPORTE,ana.gomez@yahoo.com,Argentina,Cordoba,Cordoba,Caseros,555,,3,5000,27-28456987-3,Contadora,Monotributista,1990-11-02,Argentina
-3,Carlos,Martinez,41987563,DNI,carlos.martinez@outlook.com,Uruguay,Montevideo,Montevideo,Rivera,1023,,1,11000,23-41987563-9,Arquitecto,Responsable Inscripto,1987-02-28,Uruguaya
-4,Lucia,Ramirez,33789456,LC,lucia.ramirez@gmail.com,Argentina,Santa Fe,Rosario,Mitre,2345,A,5,2000,27-33789456-2,Doctora,Monotributista,1985-08-19,Argentina
-5,Marcos,Luna,40256321,DNI,marcos.luna@hotmail.com,Chile,Santiago,Santiago,Providencia,890,,7,7500000,20-40256321-4,Abogado,Consumidor Final,1992-01-10,Chilena
-6,Florencia,Mendez,37654123,LE,flor.mendez@gmail.com,Argentina,Buenos Aires,Mar del Plata,Colon,1560,C,2,7600,27-37654123-1,Analista,Responsable Inscripto,1993-03-21,Argentina
-7,Diego,Lopez,31245879,DNI,diego.lopez@live.com,Paraguay,Central,Asuncion,Defensores del Chaco,203,,1,1000,20-31245879-0,Empresario,Monotributista,1984-06-06,Paraguaya
-8,Sofia,Herrera,29874512,DNI,sofia.herrera@gmail.com,Argentina,Mendoza,Mendoza,San Martin,450,,2,5500,27-29874512-8,Ingeniera,Responsable Inscripto,1991-12-30,Argentina
-9,Martin,Sosa,38452179,PASAPORTE,martin.sosa@yahoo.com,Argentina,Cordoba,Rio Cuarto,9 de Julio,873,,4,5800,23-38452179-5,Docente,Consumidor Final,1988-09-25,Argentina
-10,Julieta,Romero,35123456,LC,julieta.romero@gmail.com,Argentina,Santa Fe,Santa Fe,San Jeronimo,2001,B,3,3000,27-35123456-3,Diseniadora,Monotributista,1994-04-17,Argentina
-11,Tomas,Gonzalez,29874123,DNI,tomas.gonzalez@gmail.com,Argentina,Buenos Aires,Tigre,Av. Libertador,4300,,1,1648,20-29874123-9,Programador,Responsable Inscripto,1990-07-09,Argentina
-12,Camila,Fernandez,42567891,PASAPORTE,camila.fernandez@hotmail.com,Uruguay,Canelones,Las Piedras,Ituzaingo,159,,2,90200,27-42567891-0,Economista,Monotributista,1996-05-03,Uruguaya
-13,Nicolas,Peralta,36987412,LE,nicolas.peralta@gmail.com,Argentina,Entre Ri�os,Parana,Brown,670,,5,3100,23-36987412-8,Abogado,Consumidor Final,1989-02-12,Argentina
-14,Agustina,Blanco,31789456,DNI,agustina.blanco@gmail.com,Argentina,Neuquen,Neuquen,Belgrano,990,,1,8300,27-31789456-4,Medica,Responsable Inscripto,1991-10-08,Argentina
-15,Sebastian,Ruiz,29456321,PASAPORTE,sebastian.ruiz@outlook.com,Chile,Valparaiso,Villa del Mar,Libertad,730,,2,2520000,20-29456321-1,Ingeniero Civil,Monotributista,1986-09-13,Chilena
-16,Valentina,Suarez,40125879,DNI,valentina.suarez@gmail.com,Argentina,Buenos Aires,San Isidro,Acassuso,1755,A,4,1642,27-40125879-3,Contadora,Responsable Inscripto,1992-11-19,Argentina
-17,Lucas,Diaz,31548792,LC,lucas.diaz@gmail.com,Argentina,Santa Fe,Rafaela,Sarmiento,2040,,1,2300,20-31548792-7,Analista de Sistemas,Monotributista,1995-03-29,Argentina
-18,Mariana,Castro,37256841,LE,mariana.castro@gmail.com,Paraguay,Asuncion,Asuncion,Mariscal Lopez,360,,3,1000,27-37256841-9,Empresaria,Responsable Inscripto,1987-07-14,Paraguaya
-19,Antonio,Bortoli,25900123,DNI,,Argentina,Santa Fe,San Justo,Las Piedras,1902,,,3000,,Albañil,Consumidor Final,1990-02-09,Argentino
-20,francisco,soltermann,43123456,DNI,frasoltermann@gmail.com,Bolivia,La paz,Sucre,bolivar,123,,,2122,20431234560,ramera,Monotributista,2001-11-06,Boliviana
+id,nombre,apellido,telefono,documento,tipo_doc,email,pais,provincia,localidad,calle,numero,departamento,piso,codigo_postal,cuit,ocupacion,posicion_iva,fecha_nacimiento,nacionalidad
+1,Mariano,Perez,549114567890,35789456,DNI,mariano.perez@mail.com,Argentina,Buenos Aires,La Plata,Calle 7,1234,B,2,1900,20-35789456-7,Ingeniero,Responsable_Inscripto,1989-05-14,Argentina
+2,Ana,Gomez,3515432198,28456987,PASAPORTE,ana.gomez@yahoo.com,Argentina,Cordoba,Cordoba,Caseros,555,,3,5000,27-28456987-3,Contadora,Monotributista,1990-11-02,Argentina
+3,Carlos,Martinez,59824019999,41987563,LE,,Uruguay,Montevideo,Montevideo,Rivera,1023,,,11000,,Arquitecto,Consumidor_Final,1987-02-28,Uruguaya
+4,Franco,Loza,3482405489,44181045,DNI,,Argetina,Santa Fe,Reconquista,Calle 67,585,,,3560,,Estudiante,Consumidor Final,2002-08-06,Argentino
+5,Antonio,Bortoli,3425698766,44000222,DNI,,Argentina,Santa Fe,San Justo,Ni idea,999,,,3000,,Estudiante,Consumidor Final,2002-10-09,Argentino

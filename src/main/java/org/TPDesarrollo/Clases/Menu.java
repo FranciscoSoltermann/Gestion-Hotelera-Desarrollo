@@ -189,8 +189,8 @@ public class Menu {
         DireccionDTO nuevaDireccion = new DireccionDTO();
 
         System.out.println("\n[DATOS PERSONALES]");
-        nuevoHuesped.setNombre(leerCampoString(" - Nombre (*)", "", false));
-        nuevoHuesped.setApellido(leerCampoString(" - Apellido (*)", "", false));
+        nuevoHuesped.setNombre(leerCampoString(" - Nombres (*)", "", false));
+        nuevoHuesped.setApellido(leerCampoString(" - Apellidos (*)", "", false));
         nuevoHuesped.setTelefono(leerCampoString(" - Telefono (*)", "", false));
         nuevoHuesped.setEmail(leerCampoString(" - Email", "", true));
         nuevoHuesped.setNacionalidad(leerCampoString(" - Nacionalidad (*)", "", false));
@@ -245,7 +245,7 @@ public class Menu {
         }
 
         System.out.println("\n[DATOS DE DIRECCIÓN]");
-        nuevaDireccion.setPais(leerCampoString(" - País", "", false));
+        nuevaDireccion.setPais(leerCampoString(" - País (*)", "", false));
         nuevaDireccion.setProvincia(leerCampoString(" - Provincia (*)", "", false));
         nuevaDireccion.setLocalidad(leerCampoString(" - Localidad (*)", "", false));
         nuevaDireccion.setCalle(leerCampoString(" - Calle (*)", "", false));
@@ -279,16 +279,16 @@ public class Menu {
         DireccionDTO direccionModificada = clonarDireccionDTO(huespedOriginal.getDireccion());
 
         System.out.println("\n[DATOS PERSONALES]");
-        huespedModificado.setNombre(leerCampoString("Nombres", huespedOriginal.getNombre(), false));
-        huespedModificado.setApellido(leerCampoString("Apellido", huespedOriginal.getApellido(), false));
-        huespedModificado.setTelefono(leerCampoString("Teléfono", huespedOriginal.getTelefono(), true));
-        huespedModificado.setEmail(leerCampoString("Email", huespedOriginal.getEmail(), true));
-        huespedModificado.setNacionalidad(leerCampoString("Nacionalidad", huespedOriginal.getNacionalidad(), true));
+        huespedModificado.setNombre(leerCampoString(" - Nombres (*)", huespedOriginal.getNombre(), false));
+        huespedModificado.setApellido(leerCampoString(" - Apellido (*)", huespedOriginal.getApellido(), false));
+        huespedModificado.setTelefono(leerCampoString(" - Teléfono (*)", huespedOriginal.getTelefono(), false));
+        huespedModificado.setEmail(leerCampoString(" - Email", huespedOriginal.getEmail(), true));
+        huespedModificado.setNacionalidad(leerCampoString(" - Nacionalidad (*)", huespedOriginal.getNacionalidad(), false));
 
         System.out.println("\n[DATOS DE IDENTIFICACIÓN]");
 
         String tiposValidos = Arrays.toString(TipoDocumento.values());
-        String nuevoTipoDoc = leerCampoString("Tipo Documento (" + tiposValidos + ")", huespedOriginal.getTipoDocumento() != null ? huespedOriginal.getTipoDocumento().name() : "", false);
+        String nuevoTipoDoc = leerCampoString(" - Tipo Documento (*) [" + tiposValidos + "]", huespedOriginal.getTipoDocumento() != null ? huespedOriginal.getTipoDocumento().name() : "", false);
         if (!nuevoTipoDoc.isEmpty()) {
             try {
                 huespedModificado.setTipoDocumento(TipoDocumento.valueOf(nuevoTipoDoc.toUpperCase().trim()));
@@ -296,30 +296,30 @@ public class Menu {
                 System.err.println("❌ Tipo de documento inválido. Se mantiene el valor original.");
             }
         }
-        huespedModificado.setDocumento(leerCampoInteger("Número Documento", huespedOriginal.getDocumento()));
-        huespedModificado.setCuit(leerCampoString("CUIT", huespedOriginal.getCuit(), true));
-        huespedModificado.setFechaNacimiento(leerCampoLocalDate("Fecha Nacimiento (dd/MM/yyyy)", huespedOriginal.getFechaNacimiento()));
+        huespedModificado.setDocumento(leerCampoInteger(" - Número Documento (*)", huespedOriginal.getDocumento()));
+        huespedModificado.setCuit(leerCampoString(" - CUIT", huespedOriginal.getCuit(), true));
+        huespedModificado.setFechaNacimiento(leerCampoLocalDate("Fecha Nacimiento (dd/MM/yyyy) ", huespedOriginal.getFechaNacimiento()));
 
         System.out.println("\n[DATOS LABORALES/FISCALES]");
-        huespedModificado.setOcupacion(leerCampoString("Ocupación", huespedOriginal.getOcupacion(), true));
-        huespedModificado.setPosicionIVA(leerCampoString("Posición IVA", huespedOriginal.getPosicionIVA(), true));
+        huespedModificado.setOcupacion(leerCampoString(" - Ocupación (*)", huespedOriginal.getOcupacion(), false));
+        huespedModificado.setPosicionIVA(leerCampoString(" - Posición IVA", huespedOriginal.getPosicionIVA(), true));
 
         if (direccionModificada != null) {
             System.out.println("\n[DATOS DE DIRECCIÓN]");
-            direccionModificada.setPais(leerCampoString("País", direccionModificada.getPais(), true));
-            direccionModificada.setProvincia(leerCampoString("Provincia", direccionModificada.getProvincia(), true));
-            direccionModificada.setLocalidad(leerCampoString("Localidad", direccionModificada.getLocalidad(), true));
-            direccionModificada.setCalle(leerCampoString("Calle", direccionModificada.getCalle(), true));
-            direccionModificada.setNumero(leerCampoInteger("Número", direccionModificada.getNumero()));
-            direccionModificada.setPiso(leerCampoString("Piso", direccionModificada.getPiso(), true));
-            direccionModificada.setDepartamento(leerCampoString("Departamento", direccionModificada.getDepartamento(), true));
-            direccionModificada.setCodigoPostal(leerCampoString("Código Postal", direccionModificada.getCodigoPostal(), true));
+            direccionModificada.setPais(leerCampoString(" - País (*)", direccionModificada.getPais(), false));
+            direccionModificada.setProvincia(leerCampoString(" - Provincia (*)", direccionModificada.getProvincia(), false));
+            direccionModificada.setLocalidad(leerCampoString(" - Localidad (*)", direccionModificada.getLocalidad(), false));
+            direccionModificada.setCalle(leerCampoString(" - Calle (*)", direccionModificada.getCalle(), false));
+            direccionModificada.setNumero(leerCampoInteger(" - Número (*)", direccionModificada.getNumero()));
+            direccionModificada.setPiso(leerCampoString(" - Piso", direccionModificada.getPiso(), true));
+            direccionModificada.setDepartamento(leerCampoString(" - Departamento", direccionModificada.getDepartamento(), true));
+            direccionModificada.setCodigoPostal(leerCampoString(" - Código Postal (*)", direccionModificada.getCodigoPostal(), false));
         }
 
         huespedModificado.setDireccion(direccionModificada);
 
         System.out.println("\n---------------------------------------------------");
-        System.out.println("Confirme la modificación del huésped (S/N):");
+        System.out.println(" Confirme la modificación del huésped (S/N):");
         System.out.println("---------------------------------------------------");
 
         if (scanner.nextLine().trim().equalsIgnoreCase("S")) {
@@ -330,53 +330,84 @@ public class Menu {
         }
     }
 
-    private static String leerCampoString(String label, String valorActual, boolean puedeSerVacio) {
-        System.out.printf("%s [%s]: ", label, valorActual != null ? valorActual : "");
-        String entrada = scanner.nextLine().trim();
+    private static String leerCampoString(String label, String valorActual, boolean esOpcional) {
+        String entrada;
+        while (true) {
+            System.out.printf("%s [%s]: ", label, valorActual != null ? valorActual : "");
+            entrada = scanner.nextLine().trim();
 
-        if (entrada.isEmpty()) {
-            return valorActual;
+            if (!entrada.isEmpty()) {
+                return entrada;
+            }
+
+            if (esOpcional || (valorActual != null && !valorActual.isEmpty())) {
+                return valorActual;
+            }
+
+            System.out.println("\n❌ ERROR: Campo obligatorio, completelo porfavor.");
         }
-
-        return entrada;
     }
 
     private static Integer leerCampoInteger(String label, Integer valorActual) {
-        String valorActualStr = valorActual != null ? String.valueOf(valorActual) : "";
+        String entrada;
+        Integer numero = null;
+        boolean entradaValida = false;
 
-        while (true) {
-            System.out.printf("%s [%s]: ", label, valorActualStr);
-            String entrada = scanner.nextLine().trim();
+        do {
+            System.out.printf("%s [%s]: ", label, valorActual != null ? String.valueOf(valorActual) : "");
+            entrada = scanner.nextLine().trim();
 
             if (entrada.isEmpty()) {
-                return valorActual;
+                if (valorActual == null) {
+                    System.out.println("\n❌ ERROR: Campo obligatorio, completelo porfavor.");
+                    System.out.flush();
+                } else {
+                    return valorActual;
+                }
+            } else {
+                try {
+                    numero = Integer.parseInt(entrada);
+                    entradaValida = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("\n❌ ERROR: Formato de número inválido. Ingrese solo dígitos.");
+                    System.out.flush();
+                }
             }
+        } while (!entradaValida);
 
-            try {
-                return Integer.parseInt(entrada);
-            } catch (NumberFormatException e) {
-                System.err.println("⚠️ Valor no numérico. Intente de nuevo o deje en blanco para mantener el original.");
-            }
-        }
+        return numero;
     }
 
     private static LocalDate leerCampoLocalDate(String label, LocalDate valorActual) {
-        String valorActualStr = valorActual != null ? valorActual.format(DATE_FORMATTER) : "";
+        String entrada;
+        LocalDate fecha = null;
+        boolean entradaValida = false;
 
-        while (true) {
-            System.out.printf("%s [%s]: ", label, valorActualStr);
-            String entrada = scanner.nextLine().trim();
+        do {
+            System.out.printf("%s: ", label, valorActual != null ? valorActual.format(DATE_FORMATTER) : "");
+            entrada = scanner.nextLine().trim();
 
             if (entrada.isEmpty()) {
-                return valorActual;
+                if (valorActual == null) {
+                    System.out.println("\n❌ ERROR: Campo obligatorio, completelo porfavor.");
+                    System.out.flush();
+                    entradaValida = false;
+                } else {
+                    return valorActual;
+                }
+            } else {
+                try {
+                    fecha = LocalDate.parse(entrada, DATE_FORMATTER);
+                    entradaValida = true;
+                } catch (DateTimeParseException e) {
+                    System.out.println("\n❌ ERROR: Formato de fecha inválido. Utilice el formato dd/MM/yyyy.");
+                    System.out.flush();
+                    entradaValida = false;
+                }
             }
+        } while (!entradaValida);
 
-            try {
-                return LocalDate.parse(entrada, DATE_FORMATTER);
-            } catch (DateTimeParseException e) {
-                System.err.println("⚠️ Formato de fecha inválido. Use el formato dd/MM/yyyy o deje en blanco para mantener el original.");
-            }
-        }
+        return fecha;
     }
 
     private static HuespedDTO clonarHuespedDTO(HuespedDTO huesped) {
@@ -465,8 +496,8 @@ public class Menu {
 
     private static void mostrarResultados(List<HuespedDTO> resultados) {
         System.out.println("\n" + "=".repeat(500));
-        System.out.printf("%-5s %-20s %-20s %-20s %-20s %-35s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s %-35s %-35s %-20s %-20s%n", "ID", "APELLIDO",
-                "NOMBRE", "DOCUMENTO", "TIPO DOCUMENTO", "EMAIL", "PAIS", "PROVINCIA", "LOCALIDAD", "CALLE", "NUMERO", "DEPARTAMENTO", "PISO", "CODIGO POSTAL",
+        System.out.printf("%-5s %-20s %-20s %-20s %-15s %-20s %-35s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s %-35s %-35s %-20s %-20s%n", "ID", "APELLIDO",
+                "NOMBRE", "TELEFONO", "DOCUMENTO", "TIPO DOCUMENTO", "EMAIL", "PAIS", "PROVINCIA", "LOCALIDAD", "CALLE", "NUMERO", "DEPARTAMENTO", "PISO", "CODIGO POSTAL",
                 "CUIT", "OCUPACION", "POSICION IVA", "FECHA NACIMIENTO", "NACIONALIDAD");
         System.out.println("------------------------------------------------------------------");
         for (HuespedDTO dto : resultados) {
@@ -479,8 +510,8 @@ public class Menu {
             String piso = dto.getDireccion() != null ? dto.getDireccion().getPiso() : "";
             String codigoPostal = dto.getDireccion() != null ? dto.getDireccion().getCodigoPostal() : "";
             String fechaNacimiento = dto.getFechaNacimiento() != null ? dto.getFechaNacimiento().format(DATE_FORMATTER) : "";
-            System.out.printf("%-5s %-20s %-20s %-20s %-20s %-35s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s %-35s %-35s %-20s %-20s%n",
-                    dto.getId(), dto.getApellido(), dto.getNombre(), dto.getDocumento(), dto.getTipoDocumento() != null ? dto.getTipoDocumento().name() : "",
+            System.out.printf("%-5s %-20s %-20s %-20s %-15s %-20s %-35s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s %-35s %-35s %-20s %-20s%n",
+                    dto.getId(), dto.getApellido(), dto.getNombre(), dto.getTelefono(), dto.getDocumento(), dto.getTipoDocumento() != null ? dto.getTipoDocumento().name() : "",
                     dto.getEmail() != null ? dto.getEmail() : "", pais, provincia, localidad, calle, numero, departamento, piso, codigoPostal,
                     dto.getCuit() != null ? dto.getCuit() : "",
                     dto.getOcupacion() != null ? dto.getOcupacion() : "",
