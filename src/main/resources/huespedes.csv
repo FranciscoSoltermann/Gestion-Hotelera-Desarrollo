@@ -4,3 +4,4 @@ id,nombre,apellido,telefono,documento,tipo_doc,email,pais,provincia,localidad,ca
 3,Carlos,Martinez,59824019999,41987563,LE,,Uruguay,Montevideo,Montevideo,Rivera,1023,,,11000,,Arquitecto,Consumidor_Final,1987-02-28,Uruguaya
 4,Franco,Loza,3482405489,44181045,DNI,,Argetina,Santa Fe,Reconquista,Calle 67,585,,,3560,,Estudiante,Consumidor Final,2002-08-06,Argentino
 5,Antonio,Bortoli,3425698766,44000222,DNI,,Argentina,Santa Fe,San Justo,Ni idea,999,,,3000,,Estudiante,Consumidor Final,2002-10-09,Argentino
+6,Nicolas,Melgratti,3497657247,44024808,DNI,nicomelgratti@gmail.com,Argentina,Santa Fe,Progreso,Rivadavia,493,,,3023,20440248080,Estudiante,Consumidor_Final,2002-06-07,Argentina

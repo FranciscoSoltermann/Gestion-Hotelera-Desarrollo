@@ -1,6 +1,6 @@
 package org.TPDesarrollo;
 
-import org.TPDesarrollo.Clases.Menu;
+import org.TPDesarrollo.UI.Menu;
 
 public class Main {
 
