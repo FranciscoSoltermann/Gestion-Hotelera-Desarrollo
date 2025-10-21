@@ -1,6 +1,10 @@
 package org.TPDesarrollo.Clases;
-
+/**
+ * Clase que representa una dirección postal.
+ */
 public class Direccion {
+
+    // Atributos de la clase Direccion
     private String pais;
     private String provincia;
     private String localidad;
@@ -10,6 +14,7 @@ public class Direccion {
     private String piso;
     private String codigoPostal;
 
+    // Constructor de la clase Direccion
     public Direccion(String pais, String provincia, String localidad, String calle, int numero, String departamento, String piso, String codigoPostal) {
         this.pais = pais;
         this.provincia = provincia;
@@ -20,7 +25,7 @@ public class Direccion {
         this.piso = piso;
         this.codigoPostal = codigoPostal;
     }
-
+    // Getters y Setters de la clase Direccion
     public int getNumero() {
         return numero;
     }

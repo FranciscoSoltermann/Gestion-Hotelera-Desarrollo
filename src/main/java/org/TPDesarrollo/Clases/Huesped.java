@@ -4,7 +4,12 @@ import org.TPDesarrollo.Enums.TipoDocumento;
 
 import java.time.LocalDate;
 
+/**
+ * Clase que representa a un huésped, que es una persona con información adicional.
+ * Hereda de la clase Persona.
+ */
 public class Huesped extends Persona {
+    // Campos adicionales específicos de Huesped
     private String email;
     private Direccion direccion;
     private String cuit;
@@ -13,7 +18,7 @@ public class Huesped extends Persona {
     private LocalDate fechaNacimiento;
     private String nacionalidad;
     private Integer id;
-
+// Constructor vacío
     public Huesped() {}
 
     // Getters y Setters para todos los campos...

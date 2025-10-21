@@ -6,18 +6,24 @@ import org.TPDesarrollo.UI.AccionMenu;
 
 import java.util.Scanner;
 
+/**
+ * Clase que representa el menú de opciones para un huésped seleccionado.
+ * Permite al usuario modificar o dar de baja al huésped.
+ * Utiliza GestorHuesped para las operaciones de negocio relacionadas con huéspedes.
+ * Implementa la interfaz AccionMenu para integrarse con el sistema de menús.
+ */
 public class MenuHuespedSeleccionadoUI implements AccionMenu {
 
     private final Scanner scanner;
     private final GestorHuesped gestorHuesped;
     private final HuespedDTO huesped;
-
+    // Constructor que recibe el Scanner, el GestorHuesped y el HuespedDTO seleccionado
     public MenuHuespedSeleccionadoUI(Scanner scanner, GestorHuesped gestorHuesped, HuespedDTO huesped) {
         this.scanner = scanner;
         this.gestorHuesped = gestorHuesped;
         this.huesped = huesped;
     }
-
+    // Método principal para ejecutar el menú de opciones del huésped seleccionado
     @Override
     public void ejecutar() {
         int opcion;

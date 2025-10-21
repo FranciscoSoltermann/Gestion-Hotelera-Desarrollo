@@ -3,8 +3,11 @@ package org.TPDesarrollo.DTOs;
 import org.TPDesarrollo.Enums.TipoDocumento;
 import java.time.LocalDate;
 
+/**
+ * DTO para representar la información de un huésped.
+ */
 public class HuespedDTO {
-
+    // Campos del DTO
     private Integer id;
     private String nombre;
     private String apellido;
@@ -18,9 +21,9 @@ public class HuespedDTO {
     private String cuit;
     private String ocupacion;
     private String posicionIVA;
-
+    // Constructor vacío
     public HuespedDTO() {}
-
+    // Getters y Setters para todos los campos...
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
     public String getNombre() { return nombre; }

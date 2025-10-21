@@ -12,18 +12,22 @@ import org.TPDesarrollo.UI.ConsolaUtils; // Asegúrate de que este import esté 
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Clase que maneja la interfaz de usuario para dar de alta un nuevo huésped.
+ * Implementa la interfaz AccionMenu.
+ */
 public class AltaHuespedUI implements AccionMenu {
-
     private final Scanner scanner;
     private final GestorHuesped gestorHuesped;
-
+    // Constructor que recibe el Scanner y el GestorHuesped
     public AltaHuespedUI(Scanner scanner, GestorHuesped gestorHuesped) {
         this.scanner = scanner;
         this.gestorHuesped = gestorHuesped;
     }
-
+    // Método principal para ejecutar la acción de dar de alta un huésped
     @Override
     public void ejecutar() {
+
         System.out.println("\n--- CASO DE USO 09: DAR ALTA HUÉSPED ---");
         System.out.println("Ingrese los datos del nuevo huésped. Los campos con (*) son obligatorios.");
 
@@ -51,6 +55,7 @@ public class AltaHuespedUI implements AccionMenu {
         }
     }
 
+    // Métodos privados para llenar los datos del huésped
     private void llenarDatosPersonales(HuespedDTO huesped) {
         System.out.println("\n[DATOS PERSONALES]");
         // Llamamos a los métodos a través de ConsolaUtils
@@ -73,7 +78,7 @@ public class AltaHuespedUI implements AccionMenu {
         }
         huesped.setDocumento(ConsolaUtils.leerInteger(" - Número Documento (*)", null, scanner));
     }
-
+    // Método para llenar los datos fiscales del huésped
     private void llenarDatosFiscales(HuespedDTO huesped) {
         System.out.println("\n[DATOS FISCALES]");
         String cuit = ConsolaUtils.leerString(" - CUIT", null, true, scanner);
@@ -95,7 +100,7 @@ public class AltaHuespedUI implements AccionMenu {
             System.out.println(" - Posición IVA: Consumidor Final (por defecto).");
         }
     }
-
+    // Método para llenar los datos de la dirección del huésped
     private void llenarDatosDireccion(DireccionDTO direccion) {
         System.out.println("\n[DATOS DE DIRECCIÓN]");
         direccion.setPais(ConsolaUtils.leerStringLetras(" - País (*)", "", false, scanner));

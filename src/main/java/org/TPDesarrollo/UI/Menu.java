@@ -12,12 +12,22 @@ import org.TPDesarrollo.UI.acciones.BuscarHuespedUI;
 import java.io.Console;
 import java.util.Scanner;
 
+/**
+ * Clase que representa el menú principal de la aplicación.
+ * Permite la autenticación de usuarios y la navegación
+ * por las diferentes opciones del sistema de gestión hotelera.
+ * Utiliza GestorUsuario para la autenticación y GestorHuesped
+ * para las operaciones relacionadas con huéspedes.
+ * Implementa un bucle de menú que permite al usuario seleccionar
+ * diferentes acciones hasta que decida salir.
+ * Utiliza la clase Scanner para la entrada de datos desde la consola.
+ */
 public class Menu {
 
     private final Scanner scanner = new Scanner(System.in);
     private final GestorHuesped gestorHuesped = new GestorHuesped(new HuespedDAOImp());
     private final GestorUsuario gestorUsuario = new GestorUsuario(new UsuarioDAOImp());
-
+    // Método para iniciar el menú
     public void iniciar() {
         if (autenticar()) {
             System.out.println("\nCargando menú principal del sistema...");
@@ -25,7 +35,7 @@ public class Menu {
         }
         scanner.close();
     }
-
+    // Método para autenticar al usuario
     private boolean autenticar() {
         System.out.println("=== BIENVENIDO AL SISTEMA DE GESTIÓN HOTELERA ===");
         Console console = System.console();
@@ -51,7 +61,7 @@ public class Menu {
             }
         }
     }
-
+    // Método para mostrar el menú principal y manejar las opciones del usuario
     private void mostrarMenuPrincipal() {
         int opcion;
         do {

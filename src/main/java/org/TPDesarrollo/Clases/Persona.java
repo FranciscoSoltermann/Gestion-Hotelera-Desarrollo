@@ -2,13 +2,17 @@ package org.TPDesarrollo.Clases;
 
 import org.TPDesarrollo.Enums.TipoDocumento;
 
+/**
+ * Clase abstracta que representa una persona con atributos comunes.
+ */
 public abstract class Persona {
+    // Atributos comunes de una persona
     protected String nombre;
     protected String apellido;
     protected String telefono;
     protected Integer documento;
     protected TipoDocumento tipoDocumento;
-
+// Getters y Setters
     public String getNombre() {
         return nombre;
     }

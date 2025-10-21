@@ -6,12 +6,16 @@ import org.TPDesarrollo.UI.AccionMenu;
 
 import java.util.Scanner;
 
+/**
+ * Interfaz de usuario para dar de baja a un huésped.
+ * Permite confirmar la acción antes de proceder.
+ */
 public class BajaHuespedUI implements AccionMenu {
 
     private final Scanner scanner;
     private final GestorHuesped gestorHuesped;
     private final HuespedDTO huesped;
-
+    // Constructor
     public BajaHuespedUI(Scanner scanner, GestorHuesped gestorHuesped, HuespedDTO huesped) {
         this.scanner = scanner;
         this.gestorHuesped = gestorHuesped;
@@ -19,6 +23,7 @@ public class BajaHuespedUI implements AccionMenu {
     }
 
     @Override
+    // Método para ejecutar la acción de dar de baja al huésped
     public void ejecutar() {
         System.out.println("\n--- CASO DE USO 11: DAR DE BAJA HUÉSPED ---");
         System.out.println("ATENCIÓN: Esta acción es permanente y no se puede deshacer.");

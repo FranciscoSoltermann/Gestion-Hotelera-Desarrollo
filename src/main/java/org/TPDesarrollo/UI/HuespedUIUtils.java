@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class HuespedUIUtils {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
+    // Método para mostrar los resultados de una búsqueda de huéspedes
     public static void mostrarResultados(List<HuespedDTO> resultados) {
         System.out.println("\n" + "=".repeat(100));
         System.out.printf("%-5s %-20s %-20s %-15s %-15s%n", "ID", "APELLIDO", "NOMBRE", "TIPO DOC", "NRO DOC");
@@ -25,7 +25,7 @@ public class HuespedUIUtils {
         }
         System.out.println("=".repeat(100));
     }
-
+    // Método para clonar un HuespedDTO
     public static HuespedDTO clonarHuespedDTO(HuespedDTO huesped) {
         HuespedDTO clon = new HuespedDTO();
         clon.setId(huesped.getId());
@@ -45,7 +45,7 @@ public class HuespedUIUtils {
         }
         return clon;
     }
-
+    // Método para clonar un DireccionDTO
     public static DireccionDTO clonarDireccionDTO(DireccionDTO direccion) {
         if (direccion == null) return null;
         return new DireccionDTO(

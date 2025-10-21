@@ -7,11 +7,12 @@ import java.util.Scanner;
 
 /**
  * Clase de utilidades para manejar la entrada de datos por consola.
+ * Proporciona métodos para leer diferentes tipos de datos con validación.
  */
 public class ConsolaUtils {
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
+    // Evitar instanciación
     public static String leerString(String label, String valorActual, boolean esOpcional, Scanner scanner) {
         while (true) {
             System.out.printf("%s [%s]: ", label, valorActual != null && !valorActual.isEmpty() ? valorActual : "");
@@ -25,7 +26,7 @@ public class ConsolaUtils {
             System.out.println("❌ ERROR: Este campo es obligatorio.");
         }
     }
-
+    // Método para leer una cadena que solo contenga letras y espacios
     public static String leerStringLetras(String label, String valorActual, boolean esOpcional, Scanner scanner) {
         while (true) {
             String entrada = leerString(label, valorActual, esOpcional, scanner);
@@ -37,7 +38,7 @@ public class ConsolaUtils {
             System.out.println("❌ ERROR: El campo solo puede contener letras y espacios.");
         }
     }
-
+    // Método para leer un Integer con validación
     public static Integer leerInteger(String label, Integer valorActual, Scanner scanner) {
         while (true) {
             System.out.printf("%s [%s]: ", label, valorActual != null ? String.valueOf(valorActual) : "");
@@ -56,7 +57,7 @@ public class ConsolaUtils {
             }
         }
     }
-
+    // Método para leer una fecha LocalDate con validación
     public static LocalDate leerLocalDate(String label, LocalDate valorActual, Scanner scanner) {
         while (true) {
             String valorMostrado = valorActual != null ? valorActual.format(DATE_FORMATTER) : "dd/MM/yyyy";

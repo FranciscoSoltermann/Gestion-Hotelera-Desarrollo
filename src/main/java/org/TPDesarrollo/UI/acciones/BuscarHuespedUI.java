@@ -9,16 +9,24 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Optional;
 
+/**
+ * Clase que implementa la acción de buscar huéspedes en el sistema.
+ * Permite al usuario ingresar criterios de búsqueda y maneja los resultados.
+ * Si no se encuentran huéspedes, ofrece la opción de dar de alta uno nuevo.
+ * Si se encuentran huéspedes, permite seleccionar uno para ver más opciones.
+ * Utiliza GestorHuesped para las operaciones de negocio relacionadas con huéspedes.
+ * Implementa la interfaz AccionMenu para integrarse con el sistema de menús.
+ */
 public class BuscarHuespedUI implements AccionMenu {
 
     private final Scanner scanner;
     private final GestorHuesped gestorHuesped;
-
+    // Constructor que recibe el Scanner y el GestorHuesped
     public BuscarHuespedUI(Scanner scanner, GestorHuesped gestorHuesped) {
         this.scanner = scanner;
         this.gestorHuesped = gestorHuesped;
     }
-
+    // Método principal para ejecutar la acción de buscar huéspedes
     @Override
     public void ejecutar() {
         System.out.println("\n--- CASO DE USO 02: BUSCAR HUÉSPED ---");
@@ -57,7 +65,8 @@ public class BuscarHuespedUI implements AccionMenu {
             manejarBusquedaConResultados(resultados);
         }
     }
-
+    // Maneja el caso cuando no se encuentran resultados en la búsqueda
+    // Ofrece la opción de dar de alta un nuevo huésped
     private void manejarBusquedaSinResultados() {
         System.out.println("\n⚠️ No se encontraron huéspedes que coincidan con los criterios.");
         System.out.print("¿Desea dar de alta un nuevo huésped (S/N)? ");
@@ -66,7 +75,9 @@ public class BuscarHuespedUI implements AccionMenu {
             new AltaHuespedUI(scanner, gestorHuesped).ejecutar();
         }
     }
-
+    // Maneja el caso cuando se encuentran resultados en la búsqueda
+    // Permite seleccionar un huésped por su ID para ver más opciones
+    // @param resultados Lista de huéspedes encontrados
     private void manejarBusquedaConResultados(List<HuespedDTO> resultados) {
         System.out.println("\n✅ Se encontraron " + resultados.size() + " huésped(es):");
         // Llamada correcta: Usar el método estático de la clase de utilidades
